@@ -4,7 +4,6 @@ pipeline {
     stage('build') {
       steps {
         withEnv(["HOME=${env.WORKSPACE}"]) {
-        sh 'pip uninstall -r requirements.txt'
         sh 'pip install -r requirements.txt'
         }
       }
