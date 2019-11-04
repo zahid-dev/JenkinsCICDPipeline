@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'chown -R root /home/$USERNAME/.cache/pip/'
-        sh 'chown -R root /home/$USERNAME/.cache/pip/http/'
+        sh 'chown -R root /home/.cache/pip/'
+        sh 'chown -R root /home/.cache/pip/http/'
         sh 'pip install -r requirements.txt'
       }
     }
