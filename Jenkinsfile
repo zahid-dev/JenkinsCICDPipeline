@@ -4,18 +4,22 @@ pipeline {
     stage('build') {
       steps {
         withEnv(["HOME=${env.WORKSPACE}"]) {
-        sh 'pip uninstall --user -r requirements.txt'
+        sh 'pip uninstall -r requirements.txt'
         sh 'pip install -r requirements.txt'
         }
       }
     }
     stage('test') {
       steps {
+        withEnv(["HOME=${env.WORKSPACE}"]) {
         sh 'python test.py'
+        }
       }
       post {
         always {
+          withEnv(["HOME=${env.WORKSPACE}"]) {
           junit 'test-reports/*.xml'
+          }
         } 
       }  
     }
