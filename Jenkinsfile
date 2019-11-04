@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install -r requirements.txt'
+        sh 'sudo chown -R root /home/$USERNAME/.cache/pip/'
+        sh 'sudo chown -R root /home/$USERNAME/.cache/pip/http/'
+        sh 'sudo pip install -r requirements.txt'
       }
     }
     stage('test') {
