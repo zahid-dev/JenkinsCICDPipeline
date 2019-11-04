@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import unittest
+from flask import Flask
 import app
 
 class TestHello(unittest.TestCase):
